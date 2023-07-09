@@ -42,8 +42,6 @@ const CreateProduct = () => {
         addDoc(newProductCollection, newProduct).then(({ id }) => console.log(id));
     };
 
-    //   console.log({ category, description, image, stock, title });
-
     return (
         <div
             style={{

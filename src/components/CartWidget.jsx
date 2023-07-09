@@ -1,14 +1,37 @@
-import React, { useContext } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCartPlus } from '@fortawesome/free-solid-svg-icons';
-import { CartContext } from '../context/CartContext';
+import React, { useContext, useEffect, useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
+import { CartContext } from "../context/CartContext";
 
 const CartWidget = () => {
-  const [count, ] = useContext(CartContext)
+  const [qty, setQty] = useState(0);
+  const { count } = useContext(CartContext);
+  useEffect(() => {
+    setQty(count.qtyItems);
+  }, [count]);
+
   return (
-    <div style={{display: "flex", width: "40px", justifyContent: "space-between", alignItems: "center"}}>
-      <FontAwesomeIcon icon={faCartPlus} />
-      <span>{count}</span>
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "space-between",
+        alignItems: "center",
+      }}
+    >
+      <Link
+        to="/cart"
+        style={{
+          display: "flex",
+          width: "35px",
+          justifyContent: "space-between",
+          alignItems: "center",
+          textDecoration: "none",
+        }}
+      >
+        <FontAwesomeIcon icon={faCartShopping} />
+        <span>{qty}</span>
+      </Link>
     </div>
   );
 };

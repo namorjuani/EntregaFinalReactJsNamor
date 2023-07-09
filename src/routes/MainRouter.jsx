@@ -1,11 +1,10 @@
 import React from "react";
-
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-
 import Home from "../pages/Home";
 import Category from "../pages/Category";
 import Item from "../pages/Item";
 import NavBar from "../components/NavBar";
+import CreateProduct from "../pages/CreateProducts";
 
 const MainRouter = () => {
   return (
@@ -15,6 +14,7 @@ const MainRouter = () => {
         <Route path="/" element={<Home />} />
         <Route path="/category/:categoryId" element={<Category />} />
         <Route path="/item/:itemId" element={<Item />} />
+        <Route path="/create-product" element={<CreateProduct />} />
       </Routes>
     </Router>
   );
@@ -22,6 +22,3 @@ const MainRouter = () => {
 
 export default MainRouter;
 
-//PREGUNTAS PARA HACERLE A CHATGPT
-//1. cuales son las diferencias entre router Routes y Route y como se usa usalmente.
-//2. 
